@@ -1,37 +1,120 @@
-## Welcome to GitHub Pages
+# const possible usages
 
-You can use the [editor on GitHub](https://github.com/AhmedRaouf481/AhmedRaouf481.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+const keyword is attached with any method(), variable, pointer variable, and with the object of a class it prevents that specific
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Constant Variables:
+There are a certain set of rules for the declaration and initialization of the constant variables:
 
-### Markdown
+ ![Image](./t1.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Const Keyword With Pointer Variables:
+ Pointers can be declared with a const keyword. So, there are three possible ways to use a const keyword with a pointer, which are as follows:
 
-```markdown
-Syntax highlighted code block
+### When the pointer variable point to a const value:
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Syntax: 
+```c++
+const data_type* var_name;
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### When the const pointer variable point to the value:
 
-### Jekyll Themes
+### Syntax:
+```c++
+data_type* const var_name;
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AhmedRaouf481/AhmedRaouf481.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### When const pointer pointing to a const variable:
 
-### Support or Contact
+### Syntax:
+```c++
+const data_type* const var_name;
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Constant Methods:
+
+
+Like member functions and member function arguments, the objects of a class can also be declared as const. An object declared as const cannot be modified and hence, can invoke only const member functions as these functions ensure not to modify the object.
+
+### Syntax:
+```c++
+const Class_Name Object_name;
+```
+When a function is declared as const, it can be called on any type of object, const object as well as non-const objects.
+Whenever an object is declared as const, it needs to be initialized at the time of declaration. However, the object initialization while declaring is possible only with the help of constructors.
+
+
+# (&) operator possibl usages
+The & symbol is used as an operator in C++. It is used in different places, this is the better-known useges:
+- & as a bit-wise operator
+- & to get the address of a variable
+- & to declare a reference to a type
+- && in a conditional expression
+
+## Bitwise AND
+The bitwise AND operator (&) compares each bit of the first operand to that bit of the second operand. If both bits are 1, the bit is set to 1. Otherwise, the bit is set to 0. Both operands to the bitwise AND operator must be of integral types.
+
+
+### Ex.:
+```c++
+int a = 5, b = 9;   // a = 5(00000101), b = 9(00001001)
+cout << (a & b);   //  00000001
+```
+### Output
+This gives the output:
+
+```c++
+1
+```
+
+## Address Of operator
+C++ provides two-pointer operators, which are Address of Operator (&) and Indirection Operator (*).
+
+The address of Operator (&), and it is the complement of *. It is a unary operator that returns the address of the variable(r-value) specified by its operand. For example:
+```c++
+int  var;
+int  *ptr;
+int  val;
+
+var = 3000;
+
+// take the address of var
+ptr = &var;
+
+// take the value available at ptr
+val = *ptr;
+cout << "Value of var :" << var << endl;
+cout << "Value of ptr :" << ptr << endl;
+cout << "Value of val :" << val << endl;
+```
+### Output
+This gives the output:
+```c++
+Value of var :3000
+Value of ptr :0xbff64494
+Value of val :3000
+```
+## Declare a Refrenceto a type
+
+If you use & in the left-hand side of a variable declaration, it means that you expect to have a reference to the declared type. It can be used in any type of declarations (local variables, class members, method parameters).
+
+Ex.:
+```c++
+string s = "Hello, wordl";
+string& r = s; // Here, r is a reference to s
+    
+cout << s << endl;
+cout << r << endl;
+```
+### Output
+This gives the output:
+```c++
+Hello, wordl
+Hello, wordl
+```
+
+This doesn't just mean that both **s** and **r** will have the same value, but they will actually point to the same place in the memory. 
+
+## Conditional expression
+
+&& in a (logical) expression is just the C-style way to say and. That's it.
